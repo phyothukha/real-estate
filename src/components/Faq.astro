@@ -1,0 +1,96 @@
+---
+import { Icon } from 'astro-icon/components';
+
+const faqs = [
+	{
+		q: 'How do I search for properties on Estatein?',
+		a: 'Learn how to use our user-friendly search tools to find properties that match your criteria.',
+	},
+	{
+		q: 'What documents do I need to sell my property through Estatein?',
+		a: 'Find out about the necessary documentation for listing your property with us.',
+	},
+	{
+		q: 'How can I contact an Estatein agent?',
+		a: 'Discover the different ways you can get in touch with our experienced agents.',
+	},
+];
+---
+
+<section class="section" id="faq">
+	<div class="container">
+		<div class="section__head">
+			<div>
+				<p class="eyebrow" aria-hidden="true">
+					<Icon name="heroicons:sparkles" width="16" height="16" />
+					<Icon name="heroicons:sparkles" width="10" height="10" />
+					<span class="eyebrow__dot"></span>
+				</p>
+				<h2 class="section__title">Frequently Asked Questions</h2>
+				<p class="section__desc">
+					Find answers to common questions about Estatein's services, property listings, and the
+					real estate process. We're here to provide clarity and assist you every step of the way.
+				</p>
+			</div>
+			<a href="#" class="btn btn--outline">View All FAQ's</a>
+		</div>
+
+		<div class="carousel-track" id="faq-track">
+			{
+				faqs.map((item) => (
+					<article class="faq-card">
+						<h3>{item.q}</h3>
+						<p>{item.a}</p>
+						<a href="#" class="btn btn--outline faq-card__link">Read More</a>
+					</article>
+				))
+			}
+		</div>
+
+		<div class="carousel-nav">
+			<span>01 of 10</span>
+			<div class="carousel-nav__buttons">
+				<button type="button" data-carousel-prev="faq-track" aria-label="Previous question">
+					<Icon name="heroicons:arrow-left" width="16" height="16" />
+				</button>
+				<button type="button" data-carousel-next="faq-track" aria-label="Next question">
+					<Icon name="heroicons:arrow-right" width="16" height="16" />
+				</button>
+			</div>
+		</div>
+	</div>
+</section>
+
+<style>
+	.faq-card {
+		flex: 1 1 280px;
+		min-width: 280px;
+		background: var(--color-surface);
+		border: 1px solid var(--color-border);
+		border-radius: 1rem;
+		padding: 1.5rem;
+		display: flex;
+		flex-direction: column;
+		gap: 0.75rem;
+	}
+	.faq-card h3 {
+		margin: 0;
+		font-size: 1.05rem;
+		line-height: 1.4;
+	}
+	.faq-card p {
+		margin: 0;
+		color: var(--color-text-muted);
+		font-size: 0.9rem;
+		line-height: 1.6;
+	}
+	.faq-card__link {
+		align-self: flex-start;
+		margin-top: 0.5rem;
+		padding: 0.6rem 1.25rem;
+	}
+</style>
+
+<script>
+	import '../scripts/carousel.js';
+</script>

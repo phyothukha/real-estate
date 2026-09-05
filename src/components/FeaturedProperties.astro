@@ -1,0 +1,190 @@
+---
+import { Image } from 'astro:assets';
+import { Icon } from 'astro-icon/components';
+import villaImg from '../assets/home-page/Image.png';
+import metropolitanImg from '../assets/home-page/Image (1).png';
+import rusticImg from '../assets/home-page/Image (2).png';
+
+const properties = [
+	{
+		name: 'Seaside Serenity Villa',
+		description: 'A stunning 4-bedroom, 3-bathroom villa in a peaceful suburban neighborhood.',
+		beds: 4,
+		baths: 3,
+		type: 'Villa',
+		price: '$550,000',
+		image: villaImg,
+	},
+	{
+		name: 'Metropolitan Haven',
+		description: 'A chic and fully-furnished 2-bedroom apartment with panoramic city views.',
+		beds: 2,
+		baths: 2,
+		type: 'Villa',
+		price: '$550,000',
+		image: metropolitanImg,
+	},
+	{
+		name: 'Rustic Retreat Cottage',
+		description: 'An elegant 3-bedroom, 2.5-bathroom townhouse in a gated community.',
+		beds: 3,
+		baths: 3,
+		type: 'Villa',
+		price: '$550,000',
+		image: rusticImg,
+	},
+];
+---
+
+<section class="section" id="properties">
+	<div class="container">
+		<div class="section__head">
+			<div>
+				<p class="eyebrow" aria-hidden="true">
+					<Icon name="heroicons:sparkles" width="16" height="16" />
+					<Icon name="heroicons:sparkles" width="10" height="10" />
+					<span class="eyebrow__dot"></span>
+				</p>
+				<h2 class="section__title">Featured Properties</h2>
+				<p class="section__desc">
+					Explore our handpicked selection of featured properties. Each listing offers a glimpse
+					into exceptional homes and investments available through Estatein. Click "View Details"
+					for more information.
+				</p>
+			</div>
+			<a href="#" class="btn btn--outline">View All Properties</a>
+		</div>
+
+		<div class="carousel-track" id="properties-track">
+			{
+				properties.map((p) => (
+					<article class="property-card">
+						<Image
+							src={p.image}
+							alt={p.name}
+							width={706}
+							height={510}
+							class="property-card__image"
+						/>
+						<div class="property-card__body">
+							<h3>{p.name}</h3>
+							<p>
+								{p.description} <a href="#">Read More</a>
+							</p>
+							<ul class="property-card__specs">
+								<li>
+									<Icon name="tabler:bed" width="16" height="16" /> {p.beds}-Bedroom
+								</li>
+								<li>
+									<Icon name="tabler:bath" width="16" height="16" /> {p.baths}-Bathroom
+								</li>
+								<li>
+									<Icon name="tabler:building" width="16" height="16" /> {p.type}
+								</li>
+							</ul>
+							<div class="property-card__footer">
+								<div>
+									<span class="property-card__price-label">Price</span>
+									<strong>{p.price}</strong>
+								</div>
+								<a href="#" class="btn btn--solid">
+									View Property Details
+								</a>
+							</div>
+						</div>
+					</article>
+				))
+			}
+		</div>
+
+		<div class="carousel-nav">
+			<span>01 of 60</span>
+			<div class="carousel-nav__buttons">
+				<button type="button" data-carousel-prev="properties-track" aria-label="Previous property">
+					<Icon name="heroicons:arrow-left" width="16" height="16" />
+				</button>
+				<button type="button" data-carousel-next="properties-track" aria-label="Next property">
+					<Icon name="heroicons:arrow-right" width="16" height="16" />
+				</button>
+			</div>
+		</div>
+	</div>
+</section>
+
+<style>
+	.property-card {
+		flex: 1 1 280px;
+		min-width: 280px;
+		background: var(--color-surface);
+		border: 1px solid var(--color-border);
+		border-radius: 0.75rem;
+		padding: 1rem;
+		display: flex;
+		flex-direction: column;
+	}
+	.property-card__image {
+		display: block;
+		width: 100%;
+		aspect-ratio: 353 / 255;
+		object-fit: cover;
+		border-radius: 0.625rem;
+	}
+	.property-card__body {
+		padding-top: 1.25rem;
+		display: flex;
+		flex-direction: column;
+		gap: 0.75rem;
+	}
+	.property-card__body h3 {
+		margin: 0;
+		font-size: 1.1rem;
+	}
+	.property-card__body p {
+		margin: 0;
+		color: var(--color-text-muted);
+		font-size: 0.9rem;
+		line-height: 1.5;
+	}
+	.property-card__body p a {
+		color: var(--color-white);
+		text-decoration: underline;
+	}
+	.property-card__specs {
+		list-style: none;
+		display: flex;
+		gap: 0.5rem;
+		padding: 0;
+		margin: 0;
+		flex-wrap: wrap;
+		color: var(--color-white);
+		font-size: 0.8rem;
+	}
+	.property-card__specs li {
+		display: flex;
+		align-items: center;
+		gap: 0.35rem;
+		background: var(--color-surface-raised);
+		border-radius: 999px;
+		padding: 0.35rem 0.7rem;
+	}
+	.property-card__footer {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		margin-top: 0.5rem;
+		gap: 0.75rem;
+		flex-wrap: wrap;
+	}
+	.property-card__price-label {
+		display: block;
+		font-size: 0.75rem;
+		color: var(--color-text-muted);
+	}
+	.property-card__footer strong {
+		font-size: 1.1rem;
+	}
+</style>
+
+<script>
+	import '../scripts/carousel.js';
+</script>

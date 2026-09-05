@@ -1,0 +1,53 @@
+<section class="cta">
+	<div class="container cta__inner">
+		<div class="cta__copy">
+			<h2>Start Your Real Estate Journey Today</h2>
+			<p>
+				Your dream property is just a click away. Whether you're looking for a new home, a
+				strategic investment, or expert real estate advice, Estatein is here to assist you every
+				step of the way. Take the first step towards your real estate goals and explore our
+				available properties or get in touch with our team for personalized assistance.
+			</p>
+		</div>
+		<a href="#properties" class="btn btn--solid">Explore Properties</a>
+	</div>
+</section>
+
+<style>
+	.cta {
+		position: relative;
+		padding-block: 4rem;
+		border-block: 1px solid var(--color-border);
+		background:
+			radial-gradient(circle at 8px 8px, rgba(255, 255, 255, 0.06) 1px, transparent 1px) 0 0 / 32px 32px,
+			var(--color-bg);
+		overflow: hidden;
+	}
+	.cta__inner {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		gap: 2rem;
+	}
+	.cta__copy h2 {
+		margin: 0 0 0.75rem;
+		font-size: 1.75rem;
+		font-weight: var(--font-weight-bold);
+	}
+	.cta__copy p {
+		margin: 0;
+		max-width: 640px;
+		color: var(--color-text-muted);
+		line-height: 1.6;
+	}
+	.cta .btn {
+		flex-shrink: 0;
+	}
+
+	@media (max-width: 800px) {
+		.cta__inner {
+			flex-direction: column;
+			align-items: flex-start;
+		}
+	}
+</style>

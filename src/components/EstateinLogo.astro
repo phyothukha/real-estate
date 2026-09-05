@@ -1,0 +1,32 @@
+---
+import { Image } from 'astro:assets';
+import symbol from '../assets/logo/Symbol.png';
+
+interface Props {
+	size?: number;
+	showWordmark?: boolean;
+}
+
+const { size = 32, showWordmark = true } = Astro.props;
+---
+
+<a href="/" class="brand" aria-label="Estatein home">
+	<Image src={symbol} alt="" width={size} height={size} class="brand__mark" />
+	{showWordmark && <span class="brand__name">Estatein</span>}
+</a>
+
+<style>
+	.brand {
+		display: inline-flex;
+		align-items: center;
+		gap: 0.6rem;
+	}
+	.brand__mark {
+		flex-shrink: 0;
+	}
+	.brand__name {
+		font-size: 1.25rem;
+		font-weight: var(--font-weight-bold);
+		color: var(--color-white);
+	}
+</style>

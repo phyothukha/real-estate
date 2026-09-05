@@ -1,0 +1,53 @@
+/*
+  Design tokens from the "Estatein" style guide (Produce UI).
+  Purple/60 and Purple/75 are confirmed exact values pulled from the Figma
+  file's own CSS export; the other purple steps are interpolated between them.
+*/
+:root {
+	/* Absolute colors */
+	--color-white: #ffffff;
+	--color-black: #000000;
+
+	/* Purple shades — primary brand color */
+	--color-purple-60: #703bf7;
+	--color-purple-65: #8254f8;
+	--color-purple-70: #946cf9;
+	--color-purple-75: #a685fa;
+	--color-purple-90: #e6defd;
+	--color-purple-95: #f1ecfe;
+	--color-purple-97: #f7f4fe;
+	--color-purple-99: #fcfbff;
+
+	/* White shades — background hues */
+	--color-white-90: #e4e4e7;
+	--color-white-95: #f1f1f3;
+	--color-white-97: #f7f7f8;
+	--color-white-99: #fcfcfd;
+
+	/* Grey shades — text colors */
+	--color-grey-08: #141414;
+	--color-grey-10: #1a1a1a;
+	--color-grey-15: #262626;
+	--color-grey-20: #333333;
+	--color-grey-30: #4d4d4d;
+	--color-grey-40: #666666;
+	--color-grey-50: #808080;
+	--color-grey-60: #999999;
+
+	/* Typography */
+	--font-primary: 'Urbanist', system-ui, sans-serif;
+	--font-weight-regular: 400;
+	--font-weight-medium: 500;
+	--font-weight-semibold: 600;
+	--font-weight-bold: 700;
+
+	/* Surfaces — dark theme (page canvas is Grey/08, cards/panels sit on Grey/10) */
+	--color-bg: var(--color-grey-08);
+	--color-surface: var(--color-grey-08);
+	--color-surface-raised: var(--color-grey-10);
+	--color-border: var(--color-grey-15);
+	--color-text-muted: var(--color-grey-60);
+
+	/* Accent used for star ratings */
+	--color-star: #ffc107;
+}

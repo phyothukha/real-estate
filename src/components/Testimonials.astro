@@ -1,0 +1,157 @@
+---
+import { Icon } from 'astro-icon/components';
+
+const testimonials = [
+	{
+		title: 'Exceptional Service!',
+		quote:
+			"Our experience with Estatein was outstanding! Their team's dedication and professionalism made finding our dream home a breeze. Highly recommended!",
+		name: 'Wade Warren',
+		location: 'USA, California',
+	},
+	{
+		title: 'Efficient and Reliable',
+		quote:
+			"Estatein provided us with top-notch service. They helped us sell our property quickly and at a great price. We couldn't be happier with the results.",
+		name: 'Emelie Thomson',
+		location: 'USA, Florida',
+	},
+	{
+		title: 'Trusted Advisors',
+		quote:
+			'The Estatein team guided us through the entire buying process. Their knowledge and commitment to our needs were impressive. Thank you for your support!',
+		name: 'John Mans',
+		location: 'USA, Nevada',
+	},
+];
+---
+
+<section class="section" id="testimonials">
+	<div class="container">
+		<div class="section__head">
+			<div>
+				<p class="eyebrow" aria-hidden="true">
+					<Icon name="heroicons:sparkles" width="16" height="16" />
+					<Icon name="heroicons:sparkles" width="10" height="10" />
+					<span class="eyebrow__dot"></span>
+				</p>
+				<h2 class="section__title">What Our Clients Say</h2>
+				<p class="section__desc">
+					Read the success stories and heartfelt testimonials from our valued clients. Discover why
+					they chose Estatein for their real estate needs.
+				</p>
+			</div>
+			<a href="#" class="btn btn--outline">View All Testimonials</a>
+		</div>
+
+		<div class="carousel-track" id="testimonials-track">
+			{
+				testimonials.map((t) => (
+					<article class="testimonial-card">
+						<div class="testimonial-card__stars">
+							{Array.from({ length: 5 }).map(() => (
+								<span class="testimonial-card__star">
+									<Icon name="heroicons:star-solid" width="14" height="14" />
+								</span>
+							))}
+						</div>
+						<h3>{t.title}</h3>
+						<p>{t.quote}</p>
+						<div class="testimonial-card__author">
+							<span class="avatar">
+								<Icon name="heroicons:user-circle" width="24" height="24" />
+							</span>
+							<div>
+								<strong>{t.name}</strong>
+								<span>{t.location}</span>
+							</div>
+						</div>
+					</article>
+				))
+			}
+		</div>
+
+		<div class="carousel-nav">
+			<span>01 of 10</span>
+			<div class="carousel-nav__buttons">
+				<button
+					type="button"
+					data-carousel-prev="testimonials-track"
+					aria-label="Previous testimonial"
+				>
+					<Icon name="heroicons:arrow-left" width="16" height="16" />
+				</button>
+				<button type="button" data-carousel-next="testimonials-track" aria-label="Next testimonial">
+					<Icon name="heroicons:arrow-right" width="16" height="16" />
+				</button>
+			</div>
+		</div>
+	</div>
+</section>
+
+<style>
+	.testimonial-card {
+		flex: 1 1 280px;
+		min-width: 280px;
+		background: var(--color-surface);
+		border: 1px solid var(--color-border);
+		border-radius: 1rem;
+		padding: 1.5rem;
+		display: flex;
+		flex-direction: column;
+		gap: 0.75rem;
+	}
+	.testimonial-card__stars {
+		display: flex;
+		gap: 0.35rem;
+	}
+	.testimonial-card__star {
+		width: 1.75rem;
+		height: 1.75rem;
+		border-radius: 50%;
+		background: var(--color-surface-raised);
+		color: var(--color-star);
+		display: flex;
+		align-items: center;
+		justify-content: center;
+	}
+	.testimonial-card h3 {
+		margin: 0;
+		font-size: 1.1rem;
+	}
+	.testimonial-card p {
+		margin: 0;
+		color: var(--color-text-muted);
+		font-size: 0.9rem;
+		line-height: 1.6;
+	}
+	.testimonial-card__author {
+		display: flex;
+		align-items: center;
+		gap: 0.75rem;
+		margin-top: 0.5rem;
+	}
+	.testimonial-card__author .avatar {
+		width: 2.5rem;
+		height: 2.5rem;
+		border-radius: 50%;
+		background: var(--color-surface-raised);
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		color: var(--color-text-muted);
+		flex-shrink: 0;
+	}
+	.testimonial-card__author div {
+		display: flex;
+		flex-direction: column;
+		font-size: 0.85rem;
+	}
+	.testimonial-card__author span {
+		color: var(--color-text-muted);
+	}
+</style>
+
+<script>
+	import '../scripts/carousel.js';
+</script>
