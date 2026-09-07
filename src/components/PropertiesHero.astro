@@ -1,0 +1,124 @@
+---
+import { Icon } from 'astro-icon/components';
+
+const filters = [
+	{ icon: 'tabler:map-pin', label: 'Location' },
+	{ icon: 'tabler:building', label: 'Property Type' },
+	{ icon: 'tabler:cash', label: 'Pricing Range' },
+	{ icon: 'tabler:ruler-2', label: 'Property Size' },
+	{ icon: 'tabler:calendar', label: 'Build Year' },
+];
+---
+
+<section class="properties-hero container">
+	<h1>Find Your Dream Property</h1>
+	<p>
+		Welcome to Estatein, where your dream property awaits in every corner of our beautiful world.
+		Explore our curated selection of properties, each offering a unique story and a chance to
+		redefine your life. With categories to suit every dreamer, your journey
+	</p>
+
+	<div class="search-bar">
+		<label class="search-bar__field">
+			<Icon name="heroicons:magnifying-glass" width="18" height="18" />
+			<input type="text" placeholder="Search For A Property" />
+		</label>
+		<button type="button" class="btn btn--solid search-bar__submit">
+			<Icon name="heroicons:magnifying-glass" width="16" height="16" />
+			Find Property
+		</button>
+	</div>
+
+	<div class="filters">
+		{
+			filters.map((f) => (
+				<button type="button" class="filter-pill">
+					<Icon name={f.icon} width="16" height="16" />
+					<span>{f.label}</span>
+					<Icon name="tabler:chevron-down" width="14" height="14" class="filter-pill__chevron" />
+				</button>
+			))
+		}
+	</div>
+</section>
+
+<style>
+	.properties-hero {
+		padding-block: 3.5rem 2.5rem;
+	}
+	.properties-hero h1 {
+		font-size: clamp(1.75rem, 3vw, 2.25rem);
+		font-weight: var(--font-weight-bold);
+		margin: 0 0 1rem;
+	}
+	.properties-hero p {
+		color: var(--color-text-muted);
+		line-height: 1.6;
+		max-width: 720px;
+		margin: 0 0 2rem;
+	}
+
+	.search-bar {
+		display: flex;
+		gap: 0.75rem;
+		background: var(--color-surface-raised);
+		border: 1px solid var(--color-border);
+		border-radius: 0.75rem;
+		padding: 0.5rem;
+		margin-bottom: 1rem;
+	}
+	.search-bar__field {
+		flex: 1;
+		display: flex;
+		align-items: center;
+		gap: 0.6rem;
+		padding: 0.6rem 1rem;
+		color: var(--color-text-muted);
+	}
+	.search-bar__field input {
+		flex: 1;
+		background: none;
+		border: none;
+		color: var(--color-white);
+		font: inherit;
+	}
+	.search-bar__field input::placeholder {
+		color: var(--color-text-muted);
+	}
+	.search-bar__field input:focus {
+		outline: none;
+	}
+	.search-bar__submit {
+		flex-shrink: 0;
+		padding: 0.75rem 1.5rem;
+	}
+
+	.filters {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 0.75rem;
+	}
+	.filter-pill {
+		display: flex;
+		align-items: center;
+		gap: 0.5rem;
+		padding: 0.75rem 1rem;
+		border-radius: 0.625rem;
+		border: 1px solid var(--color-border);
+		background: var(--color-surface-raised);
+		color: var(--color-text-muted);
+		font-size: 0.875rem;
+	}
+	.filter-pill:hover {
+		border-color: var(--color-purple-60);
+	}
+	.filter-pill__chevron {
+		margin-left: 0.25rem;
+	}
+
+	@media (max-width: 700px) {
+		.search-bar {
+			flex-direction: column;
+		}
+	}
+</style>

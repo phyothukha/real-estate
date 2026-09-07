@@ -1,0 +1,22 @@
+---
+import Layout from '../layouts/Layout.astro';
+import SiteHeader from '../components/SiteHeader.astro';
+import PropertiesHero from '../components/PropertiesHero.astro';
+import PropertyListings from '../components/PropertyListings.astro';
+import InquiryForm from '../components/InquiryForm.astro';
+import CtaBanner from '../components/CtaBanner.astro';
+import SiteFooter from '../components/SiteFooter.astro';
+---
+
+<Layout title="Properties — Estatein">
+	<div class="site-shell">
+		<SiteHeader />
+		<main>
+			<PropertiesHero />
+			<PropertyListings />
+			<InquiryForm />
+			<CtaBanner />
+		</main>
+		<SiteFooter />
+	</div>
+</Layout>

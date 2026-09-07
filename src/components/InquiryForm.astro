@@ -1,0 +1,243 @@
+---
+import { Icon } from 'astro-icon/components';
+---
+
+<section class="section" id="contact-form">
+	<div class="container">
+		<div class="section__head">
+			<div>
+				<p class="eyebrow" aria-hidden="true">
+					<Icon name="heroicons:sparkles" width="16" height="16" />
+					<Icon name="heroicons:sparkles" width="10" height="10" />
+					<span class="eyebrow__dot"></span>
+				</p>
+				<h2 class="section__title">Let's Make it Happen</h2>
+				<p class="section__desc">
+					Ready to take the first step toward your dream property? Fill out the form below, and
+					our real estate wizards will work their magic to find your perfect match. Don't wait,
+					let's embark on this exciting journey together.
+				</p>
+			</div>
+		</div>
+
+		<form class="inquiry-form">
+			<div class="form-field">
+				<label for="first-name">First Name</label>
+				<input id="first-name" type="text" placeholder="Enter First Name" />
+			</div>
+			<div class="form-field">
+				<label for="last-name">Last Name</label>
+				<input id="last-name" type="text" placeholder="Enter Last Name" />
+			</div>
+			<div class="form-field">
+				<label for="email">Email</label>
+				<input id="email" type="email" placeholder="Enter your Email" />
+			</div>
+			<div class="form-field">
+				<label for="phone">Phone</label>
+				<input id="phone" type="tel" placeholder="Enter Phone Number" />
+			</div>
+
+			<div class="form-field">
+				<label for="location">Preferred Location</label>
+				<select id="location">
+					<option value="">Select Location</option>
+				</select>
+			</div>
+			<div class="form-field">
+				<label for="property-type">Property Type</label>
+				<select id="property-type">
+					<option value="">Select Property Type</option>
+				</select>
+			</div>
+			<div class="form-field">
+				<label for="bathrooms">No. of Bathrooms</label>
+				<select id="bathrooms">
+					<option value="">Select no. of Bedrooms</option>
+				</select>
+			</div>
+			<div class="form-field">
+				<label for="bedrooms">No. of Bedrooms</label>
+				<select id="bedrooms">
+					<option value="">Select no. of Bedrooms</option>
+				</select>
+			</div>
+
+			<div class="form-field form-field--budget">
+				<label for="budget">Budget</label>
+				<select id="budget">
+					<option value="">Select Budget</option>
+				</select>
+			</div>
+			<div class="form-field form-field--contact">
+				<label>Preferred Contact Method</label>
+				<div class="contact-method">
+					<label class="contact-method__option">
+						<Icon name="tabler:phone" width="16" height="16" />
+						<input type="text" placeholder="Enter Your Number" />
+						<input type="radio" name="contact-method" value="phone" checked />
+					</label>
+					<label class="contact-method__option">
+						<Icon name="tabler:mail" width="16" height="16" />
+						<input type="text" placeholder="Enter Your Email" />
+						<input type="radio" name="contact-method" value="email" />
+					</label>
+				</div>
+			</div>
+
+			<div class="form-field form-field--message">
+				<label for="message">Message</label>
+				<textarea id="message" rows="4" placeholder="Enter your Message here"></textarea>
+			</div>
+
+			<div class="form-footer">
+				<label class="agree">
+					<input type="checkbox" />
+					<span>I agree with <a href="#">Terms of Use</a> and <a href="#">Privacy Policy</a></span>
+				</label>
+				<button type="submit" class="btn btn--solid">Send Your Message</button>
+			</div>
+		</form>
+	</div>
+</section>
+
+<style>
+	.inquiry-form {
+		display: grid;
+		grid-template-columns: repeat(4, 1fr);
+		gap: 1.5rem;
+		background: var(--color-surface-raised);
+		border: 1px solid var(--color-border);
+		border-radius: 1rem;
+		padding: clamp(1.5rem, 3vw, 2.5rem);
+	}
+	.form-field {
+		display: flex;
+		flex-direction: column;
+		gap: 0.6rem;
+	}
+	.form-field label {
+		font-size: 0.9rem;
+		font-weight: var(--font-weight-medium);
+	}
+	.form-field input,
+	.form-field select,
+	.form-field textarea {
+		background: var(--color-surface);
+		border: 1px solid var(--color-border);
+		border-radius: 0.5rem;
+		padding: 0.75rem 1rem;
+		color: var(--color-white);
+		font: inherit;
+	}
+	.form-field input::placeholder,
+	.form-field textarea::placeholder {
+		color: var(--color-text-muted);
+	}
+	.form-field select {
+		color: var(--color-text-muted);
+		appearance: none;
+	}
+	.form-field input:focus,
+	.form-field select:focus,
+	.form-field textarea:focus {
+		outline: none;
+		border-color: var(--color-purple-60);
+	}
+
+	.form-field--budget {
+		grid-column: span 1;
+	}
+	.form-field--contact {
+		grid-column: span 3;
+	}
+	.contact-method {
+		display: grid;
+		grid-template-columns: repeat(2, 1fr);
+		gap: 1rem;
+	}
+	.contact-method__option {
+		display: flex;
+		align-items: center;
+		gap: 0.6rem;
+		background: var(--color-surface);
+		border: 1px solid var(--color-border);
+		border-radius: 0.5rem;
+		padding: 0.75rem 1rem;
+		color: var(--color-text-muted);
+	}
+	.contact-method__option input[type='text'] {
+		flex: 1;
+		background: none;
+		border: none;
+		padding: 0;
+		color: var(--color-white);
+	}
+	.contact-method__option input[type='text']:focus {
+		outline: none;
+	}
+	.contact-method__option input[type='radio'] {
+		accent-color: var(--color-purple-60);
+		width: 1rem;
+		height: 1rem;
+		flex-shrink: 0;
+	}
+
+	.form-field--message {
+		grid-column: 1 / -1;
+	}
+	.form-field--message textarea {
+		resize: vertical;
+	}
+
+	.form-footer {
+		grid-column: 1 / -1;
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		gap: 1.5rem;
+		flex-wrap: wrap;
+	}
+	.agree {
+		display: flex;
+		align-items: center;
+		gap: 0.6rem;
+		color: var(--color-text-muted);
+		font-size: 0.9rem;
+	}
+	.agree input {
+		accent-color: var(--color-purple-60);
+		width: 1.1rem;
+		height: 1.1rem;
+	}
+	.agree a {
+		color: var(--color-white);
+		text-decoration: underline;
+	}
+
+	@media (max-width: 900px) {
+		.inquiry-form {
+			grid-template-columns: repeat(2, 1fr);
+		}
+		.form-field--budget,
+		.form-field--contact {
+			grid-column: span 2;
+		}
+		.contact-method {
+			grid-template-columns: 1fr;
+		}
+	}
+	@media (max-width: 560px) {
+		.inquiry-form {
+			grid-template-columns: 1fr;
+		}
+		.form-field--budget,
+		.form-field--contact {
+			grid-column: span 1;
+		}
+		.form-footer {
+			flex-direction: column;
+			align-items: flex-start;
+		}
+	}
+</style>
