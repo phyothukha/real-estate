@@ -1,0 +1,111 @@
+---
+import { Image } from 'astro:assets';
+import houseInHand from '../assets/about-page/Image (4).png';
+---
+
+<section class="about-hero container">
+	<div class="about-hero__inner">
+		<div class="about-hero__content">
+			<h1>Our Journey</h1>
+			<p>
+				Our story is one of continuous growth and evolution. We started as a small team with big
+				dreams, determined to create a real estate platform that transcended the ordinary. Over
+				the years, we've expanded our reach, forged valuable partnerships, and gained the trust of
+				countless clients.
+			</p>
+			<div class="about-hero__stats">
+				<div class="stat">
+					<span class="stat__value">200+</span>
+					<span class="stat__label">Happy Customers</span>
+				</div>
+				<div class="stat">
+					<span class="stat__value">10k+</span>
+					<span class="stat__label">Properties For Clients</span>
+				</div>
+				<div class="stat">
+					<span class="stat__value">16+</span>
+					<span class="stat__label">Years of Experience</span>
+				</div>
+			</div>
+		</div>
+
+		<div class="about-hero__visual">
+			<Image
+				src={houseInHand}
+				alt="Model house held in a hand"
+				widths={[400, 600, 900]}
+				sizes="(max-width: 900px) 100vw, 500px"
+				class="about-hero__visual-img"
+			/>
+		</div>
+	</div>
+</section>
+
+<style>
+	.about-hero {
+		padding-block: 3.5rem 2rem;
+	}
+	.about-hero__inner {
+		display: grid;
+		grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+		align-items: center;
+		gap: clamp(1.5rem, 4vw, 3.75rem);
+	}
+	.about-hero__content h1 {
+		font-size: clamp(1.75rem, 3vw, 2.25rem);
+		font-weight: var(--font-weight-bold);
+		margin: 0 0 1rem;
+	}
+	.about-hero__content p {
+		color: var(--color-text-muted);
+		line-height: 1.6;
+		max-width: 520px;
+		margin: 0 0 2rem;
+	}
+	.about-hero__stats {
+		display: flex;
+		gap: 1rem;
+		flex-wrap: wrap;
+	}
+	.stat {
+		border: 1px solid var(--color-border);
+		border-radius: 0.625rem;
+		padding: 0.875rem 1.25rem;
+		background: var(--color-surface-raised);
+		min-width: 140px;
+	}
+	.stat__value {
+		display: block;
+		font-size: 1.875rem;
+		font-weight: var(--font-weight-bold);
+	}
+	.stat__label {
+		display: block;
+		color: var(--color-text-muted);
+		font-weight: var(--font-weight-medium);
+		font-size: 0.875rem;
+		margin-top: 0.15rem;
+	}
+
+	.about-hero__visual {
+		border: 1px solid var(--color-border);
+		border-radius: 1rem;
+		background: var(--color-surface-raised);
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		aspect-ratio: 4 / 3;
+		overflow: hidden;
+	}
+	.about-hero__visual :global(.about-hero__visual-img) {
+		width: 70%;
+		height: auto;
+		object-fit: contain;
+	}
+
+	@media (max-width: 900px) {
+		.about-hero__inner {
+			grid-template-columns: 1fr;
+		}
+	}
+</style>

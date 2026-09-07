@@ -1,0 +1,158 @@
+---
+import { Icon } from 'astro-icon/components';
+
+const clients = [
+	{
+		since: 'Since 2019',
+		name: 'ABC Corporation',
+		domain: 'Commercial Real Estate',
+		category: 'Luxury Home Development',
+		quote:
+			"Estatein's expertise in finding the perfect office space for our expanding operations was invaluable. They truly understand business needs.",
+	},
+	{
+		since: 'Since 2018',
+		name: 'GreenTech Enterprises',
+		domain: 'Commercial Real Estate',
+		category: 'Retail Space',
+		quote:
+			"Estatein's ability to identify prime retail locations helped us expand our brand presence. They are a trusted partner in our growth.",
+	},
+];
+---
+
+<section class="section" id="clients">
+	<div class="container">
+		<div class="section__head">
+			<div>
+				<p class="eyebrow" aria-hidden="true">
+					<Icon name="heroicons:sparkles" width="16" height="16" />
+					<Icon name="heroicons:sparkles" width="10" height="10" />
+					<span class="eyebrow__dot"></span>
+				</p>
+				<h2 class="section__title">Our Valued Clients</h2>
+				<p class="section__desc">
+					At Estatein, we have had the privilege of working with a diverse range of clients across
+					various industries. Here are some of the clients we've had the pleasure of serving.
+				</p>
+			</div>
+		</div>
+
+		<div class="carousel-track" id="clients-track">
+			{
+				clients.map((c) => (
+					<article class="client-card">
+						<div class="client-card__head">
+							<div>
+								<span class="client-card__since">{c.since}</span>
+								<h3>{c.name}</h3>
+							</div>
+							<a href="#" class="btn btn--outline client-card__visit">
+								Visit Website
+							</a>
+						</div>
+						<div class="client-card__meta">
+							<div>
+								<span class="client-card__meta-label">
+									<Icon name="heroicons:globe-alt" width="14" height="14" /> Domain
+								</span>
+								<strong>{c.domain}</strong>
+							</div>
+							<div>
+								<span class="client-card__meta-label">
+									<Icon name="tabler:star" width="14" height="14" /> Category
+								</span>
+								<strong>{c.category}</strong>
+							</div>
+						</div>
+						<div class="client-card__quote">
+							<span class="client-card__quote-label">What They Said 💬</span>
+							<p>{c.quote}</p>
+						</div>
+					</article>
+				))
+			}
+		</div>
+
+		<div class="carousel-nav">
+			<span>01 of 10</span>
+			<div class="carousel-nav__buttons">
+				<button type="button" data-carousel-prev="clients-track" aria-label="Previous client">
+					<Icon name="heroicons:arrow-left" width="16" height="16" />
+				</button>
+				<button type="button" data-carousel-next="clients-track" aria-label="Next client">
+					<Icon name="heroicons:arrow-right" width="16" height="16" />
+				</button>
+			</div>
+		</div>
+	</div>
+</section>
+
+<style>
+	.client-card {
+		flex: 1 1 380px;
+		min-width: 320px;
+		background: var(--color-surface-raised);
+		border: 1px solid var(--color-border);
+		border-radius: 0.75rem;
+		padding: 1.5rem;
+	}
+	.client-card__head {
+		display: flex;
+		align-items: flex-start;
+		justify-content: space-between;
+		gap: 1rem;
+	}
+	.client-card__since {
+		display: block;
+		font-size: 0.8rem;
+		color: var(--color-text-muted);
+		margin-bottom: 0.25rem;
+	}
+	.client-card__head h3 {
+		margin: 0;
+		font-size: 1.15rem;
+	}
+	.client-card__visit {
+		flex-shrink: 0;
+		padding: 0.55rem 1rem;
+		font-size: 0.8rem;
+	}
+	.client-card__meta {
+		display: flex;
+		gap: 2.5rem;
+		margin: 1.5rem 0;
+	}
+	.client-card__meta-label {
+		display: flex;
+		align-items: center;
+		gap: 0.35rem;
+		color: var(--color-text-muted);
+		font-size: 0.8rem;
+		margin-bottom: 0.35rem;
+	}
+	.client-card__meta strong {
+		font-size: 0.95rem;
+	}
+	.client-card__quote {
+		background: var(--color-surface);
+		border: 1px solid var(--color-border);
+		border-radius: 0.625rem;
+		padding: 1.25rem;
+	}
+	.client-card__quote-label {
+		display: block;
+		font-size: 0.8rem;
+		color: var(--color-text-muted);
+		margin-bottom: 0.5rem;
+	}
+	.client-card__quote p {
+		margin: 0;
+		line-height: 1.6;
+		font-size: 0.9rem;
+	}
+</style>
+
+<script>
+	import '../scripts/carousel.js';
+</script>

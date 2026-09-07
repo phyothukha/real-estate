@@ -4,10 +4,12 @@ import EstateinLogo from './EstateinLogo.astro';
 
 const navItems = [
 	{ label: 'Home', href: '/' },
-	{ label: 'About Us', href: '#about' },
+	{ label: 'About Us', href: '/about' },
 	{ label: 'Properties', href: '#properties' },
 	{ label: 'Services', href: '#services' },
 ];
+
+const currentPath = Astro.url.pathname;
 ---
 
 <div class="announcement">
@@ -27,9 +29,9 @@ const navItems = [
 		<nav class="site-nav" aria-label="Primary">
 			<ul>
 				{
-					navItems.map((item, i) => (
+					navItems.map((item) => (
 						<li>
-							<a href={item.href} class={i === 0 ? 'active' : ''}>
+							<a href={item.href} class={currentPath === item.href ? 'active' : ''}>
 								{item.label}
 							</a>
 						</li>

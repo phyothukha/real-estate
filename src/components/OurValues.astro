@@ -1,0 +1,117 @@
+---
+import { Icon } from 'astro-icon/components';
+
+const values = [
+	{
+		icon: 'tabler:star',
+		title: 'Trust',
+		desc: 'Trust is the cornerstone of every successful real estate transaction.',
+	},
+	{
+		icon: 'tabler:certificate',
+		title: 'Excellence',
+		desc: 'We set the bar high for ourselves. From the properties we list to the services we provide.',
+	},
+	{
+		icon: 'tabler:users-group',
+		title: 'Client-Centric',
+		desc: 'Your dreams and needs are at the center of our universe. We listen, understand.',
+	},
+	{
+		icon: 'tabler:heart-handshake',
+		title: 'Our Commitment',
+		desc: 'We are dedicated to providing you with the highest level of service, professionalism.',
+	},
+];
+---
+
+<section class="section" id="values">
+	<div class="container our-values">
+		<div class="our-values__intro">
+			<p class="eyebrow" aria-hidden="true">
+				<Icon name="heroicons:sparkles" width="16" height="16" />
+				<Icon name="heroicons:sparkles" width="10" height="10" />
+				<span class="eyebrow__dot"></span>
+			</p>
+			<h2 class="section__title">Our Values</h2>
+			<p class="section__desc">
+				Our story is one of continuous growth and evolution. We started as a small team with big
+				dreams, determined to create a real estate platform that transcended the ordinary.
+			</p>
+		</div>
+
+		<div class="our-values__grid">
+			{
+				values.map((v) => (
+					<div class="value-item">
+						<span class="value-item__icon">
+							<Icon name={v.icon} width="20" height="20" />
+						</span>
+						<div>
+							<h3>{v.title}</h3>
+							<p>{v.desc}</p>
+						</div>
+					</div>
+				))
+			}
+		</div>
+	</div>
+</section>
+
+<style>
+	.our-values {
+		display: grid;
+		grid-template-columns: minmax(0, 1fr) minmax(0, 1.3fr);
+		gap: clamp(1.5rem, 4vw, 3.75rem);
+		align-items: start;
+	}
+	.our-values__intro .section__title {
+		margin-top: 0;
+	}
+	.our-values__grid {
+		display: grid;
+		grid-template-columns: repeat(2, 1fr);
+		gap: 1.25rem;
+	}
+	.value-item {
+		display: flex;
+		gap: 1rem;
+		background: var(--color-surface-raised);
+		border: 1px solid var(--color-border);
+		border-radius: 0.75rem;
+		padding: 1.5rem;
+	}
+	.value-item__icon {
+		flex-shrink: 0;
+		width: 2.75rem;
+		height: 2.75rem;
+		border-radius: 50%;
+		background: var(--color-surface);
+		border: 1px solid var(--color-border);
+		color: var(--color-purple-75);
+		display: flex;
+		align-items: center;
+		justify-content: center;
+	}
+	.value-item h3 {
+		margin: 0 0 0.4rem;
+		font-size: 1.05rem;
+	}
+	.value-item p {
+		margin: 0;
+		color: var(--color-text-muted);
+		font-size: 0.9rem;
+		line-height: 1.5;
+	}
+
+	@media (max-width: 900px) {
+		.our-values {
+			grid-template-columns: 1fr;
+		}
+	}
+	@media (max-width: 560px) {
+		.our-values__grid {
+			grid-template-columns: 1fr;
+		}
+	}
+</style>

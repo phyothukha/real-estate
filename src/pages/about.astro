@@ -1,0 +1,28 @@
+---
+import Layout from '../layouts/Layout.astro';
+import SiteHeader from '../components/SiteHeader.astro';
+import AboutHero from '../components/AboutHero.astro';
+import OurValues from '../components/OurValues.astro';
+import Achievements from '../components/Achievements.astro';
+import ExperienceSteps from '../components/ExperienceSteps.astro';
+import TeamSection from '../components/TeamSection.astro';
+import ClientsSection from '../components/ClientsSection.astro';
+import CtaBanner from '../components/CtaBanner.astro';
+import SiteFooter from '../components/SiteFooter.astro';
+---
+
+<Layout title="About Us — Estatein">
+	<div class="site-shell">
+		<SiteHeader />
+		<main>
+			<AboutHero />
+			<OurValues />
+			<Achievements />
+			<ExperienceSteps />
+			<TeamSection />
+			<ClientsSection />
+			<CtaBanner />
+		</main>
+		<SiteFooter />
+	</div>
+</Layout>

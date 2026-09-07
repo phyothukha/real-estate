@@ -1,0 +1,142 @@
+---
+import { Image } from 'astro:assets';
+import { Icon } from 'astro-icon/components';
+import maxImg from '../assets/about-page/Image (5).png';
+import sarahImg from '../assets/about-page/Image (6).png';
+import davidImg from '../assets/about-page/Image (7).png';
+import michaelImg from '../assets/about-page/Image (8).png';
+
+const team = [
+	{ name: 'Max Mitchell', role: 'Founder', image: maxImg },
+	{ name: 'Sarah Johnson', role: 'Chief Real Estate Officer', image: sarahImg },
+	{ name: 'David Brown', role: 'Head of Property Management', image: davidImg },
+	{ name: 'Michael Turner', role: 'Legal Counsel', image: michaelImg },
+];
+---
+
+<section class="section" id="team">
+	<div class="container">
+		<div class="section__head">
+			<div>
+				<p class="eyebrow" aria-hidden="true">
+					<Icon name="heroicons:sparkles" width="16" height="16" />
+					<Icon name="heroicons:sparkles" width="10" height="10" />
+					<span class="eyebrow__dot"></span>
+				</p>
+				<h2 class="section__title">Meet the Estatein Team</h2>
+				<p class="section__desc">
+					At Estatein, our success is driven by the dedication and expertise of our team. Get to
+					know the people behind our mission to make your real estate dreams a reality.
+				</p>
+			</div>
+		</div>
+
+		<div class="team-grid">
+			{
+				team.map((member) => (
+					<article class="team-card">
+						<div class="team-card__photo">
+							<Image src={member.image} alt={member.name} width={385} height={330} />
+							<span class="team-card__social">
+								<Icon name="simple-icons:twitter" width="16" height="16" />
+							</span>
+						</div>
+						<h3>{member.name}</h3>
+						<p>{member.role}</p>
+						<div class="team-card__actions">
+							<a href="#" class="btn btn--outline team-card__hello">Say Hello 👋</a>
+							<a href="#" class="team-card__send" aria-label={`Message ${member.name}`}>
+								<Icon name="tabler:send-2" width="16" height="16" />
+							</a>
+						</div>
+					</article>
+				))
+			}
+		</div>
+	</div>
+</section>
+
+<style>
+	.team-grid {
+		display: grid;
+		grid-template-columns: repeat(4, 1fr);
+		gap: 1.25rem;
+	}
+	.team-card {
+		background: var(--color-surface-raised);
+		border: 1px solid var(--color-border);
+		border-radius: 0.75rem;
+		padding: 1rem;
+	}
+	.team-card__photo {
+		position: relative;
+		border-radius: 0.625rem;
+		overflow: hidden;
+		margin-bottom: 1rem;
+	}
+	.team-card__photo :global(img) {
+		width: 100%;
+		aspect-ratio: 385 / 330;
+		object-fit: cover;
+	}
+	.team-card__social {
+		position: absolute;
+		left: 50%;
+		bottom: -0.9rem;
+		transform: translateX(-50%);
+		width: 2.25rem;
+		height: 2.25rem;
+		border-radius: 50%;
+		background: var(--color-purple-60);
+		color: var(--color-white);
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		border: 3px solid var(--color-surface-raised);
+	}
+	.team-card h3 {
+		margin: 0.75rem 0 0.15rem;
+		font-size: 1.05rem;
+		text-align: center;
+	}
+	.team-card p {
+		margin: 0 0 1.25rem;
+		color: var(--color-text-muted);
+		font-size: 0.85rem;
+		text-align: center;
+	}
+	.team-card__actions {
+		display: flex;
+		align-items: center;
+		gap: 0.6rem;
+	}
+	.team-card__hello {
+		flex: 1;
+		padding: 0.65rem 1rem;
+		font-size: 0.8rem;
+	}
+	.team-card__send {
+		flex-shrink: 0;
+		width: 2.5rem;
+		height: 2.5rem;
+		border-radius: 0.5rem;
+		border: 1px solid var(--color-border);
+		display: flex;
+		align-items: center;
+		justify-content: center;
+	}
+	.team-card__send:hover {
+		border-color: var(--color-purple-60);
+	}
+
+	@media (max-width: 900px) {
+		.team-grid {
+			grid-template-columns: repeat(2, 1fr);
+		}
+	}
+	@media (max-width: 480px) {
+		.team-grid {
+			grid-template-columns: 1fr;
+		}
+	}
+</style>
